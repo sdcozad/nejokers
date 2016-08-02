@@ -1,0 +1,28 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="FNTS Tests" verbose="2">
+    <parameter name="browse" value="FIREFOX"></parameter>
+   <parameter name="chromedriver" value ="src/test/resources/chromedriver"></parameter>
+    <parameter name="testLogLevel" value = "info"></parameter>
+    <parameter name="baseURL" value ="http://nejokers.com"></parameter>
+    
+    <parameter name="testrailURL" value = "https://cri.testrail.com/"></parameter>
+    <parameter name="testrailUserName" value = "hscruggs@clientresourcesinc.com"></parameter>
+    <parameter name="testRailPassword" value = "Smokey32!"></parameter>
+    <parameter name="updateTestRail" value = "no"></parameter>
+    <parameter name="firefoxTestRun" value = "2274"></parameter>
+    <parameter name="ScreenShotDirectory" value = "ScreenShots/"></parameter>
+         
+    
+  <test name = "Test" preserve-order="true">
+        <groups>
+            <run>
+                <include name='smokeTests'/>
+            </run>
+        </groups>
+         <classes>
+                 <class name="com.nejokers.homepage.Homepage"></class> 
+         </classes>
+   </test>
+ 
+   
+</suite>
