@@ -1,6 +1,7 @@
 package com.nejokers.homepage;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
@@ -28,8 +29,8 @@ public class Homepage {
 	@Test(priority = 10, groups = {"smokeTests"})
 	   public void verifyHomePageTitle(ITestContext context) {
 
-	     
-
+		Assert.assertEquals(driver.getTitle(), "Omaha Nebraska Jokers Select 13 AAA Baseball");
+		
 	   }
 
  
@@ -43,7 +44,10 @@ public class Homepage {
 //	               CriTestRails.getTestRun(),
 //	               result);
 //
-//	       if (result.getStatus() == ITestResult.FAILURE)
+	       if (result.getStatus() == ITestResult.FAILURE)
+	    	   System.out.println("Failed - Page Title Wrong");
+	       else
+	    	   System.out.println("Passed - Page Title Correct");
 //	           Utils.takeScreenShot(driver, context, result);
 	   }
 
