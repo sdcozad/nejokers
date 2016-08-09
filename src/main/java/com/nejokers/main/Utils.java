@@ -57,4 +57,16 @@ public class Utils {
 	       browserType = appType;
 	   }
 	
+	   public static void sleep(int value)
+	   {
+			try {
+			Thread.sleep(value);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	   
+      }
+	   
+	   
 }
