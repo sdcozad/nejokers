@@ -40,42 +40,42 @@ public class Homepage {
 		
 //		Test Comment
 		Homepage.click(Homepage.AboutUs);
-		Homepage.waitFortitleToBePresent("About the Nebraska Jokers 13U AAA USSSA select Baseball Team");
+		Homepage.waitFortitleToBePresent("Nebraska Jokers Baseball | About Us");
 //		Assert.assertEquals(driver.getTitle(), "About the Nebraska Jokers 13U AAA USSSA select Baseball Team");
 //		System.out.println("AboutUs = " + driver.getTitle());
 		
 		Homepage.click(Homepage.Wanted);
-		Homepage.waitFortitleToBePresent("Nebraska Jokers Select 13U AAA Baseball | *Wanted*");
+		Homepage.waitFortitleToBePresent("Nebraska Jokers Baseball | Wanted");
 //		Assert.assertEquals(driver.getTitle(), "Nebraska Jokers Select 13U AAA Baseball | *Wanted*");
 //		System.out.println("*Wanted* = " + driver.getTitle());
 		
 		Homepage.click(Homepage.Events);
-		Homepage.waitFortitleToBePresent("Events");
+		Homepage.waitFortitleToBePresent("Nebraska Jokers Baseball | Events");
 //		Assert.assertEquals(driver.getTitle(), "Events");
 //		System.out.println("Events = " + driver.getTitle());
 		
 		Homepage.click(Homepage.Calendar);
-		Homepage.waitFortitleToBePresent("SC Calendar");
+		Homepage.waitFortitleToBePresent("Nebraska Jokers Baseball | Calendar");
 //		Assert.assertEquals(driver.getTitle(), "Nebraska Jokers Select 13U AAA Baseball | Calendar");
 //		System.out.println("Calendar = " + driver.getTitle());
 		
 		Homepage.click(Homepage.Players);
-		Homepage.waitFortitleToBePresent("The Players");
+		Homepage.waitFortitleToBePresent("Nebraska Jokers Baseball | Players");
 //		Assert.assertEquals(driver.getTitle(), "The Players");
 //		System.out.println("Players = " + driver.getTitle());
 		
 		Homepage.click(Homepage.Coaches);
-		Homepage.waitFortitleToBePresent("The Coaches");
+		Homepage.waitFortitleToBePresent("Nebraska Jokers Baseball | Coaches");
 //		Assert.assertEquals(driver.getTitle(), "The Coaches");
 //		System.out.println("Coaches = " + driver.getTitle());
 		
 		Homepage.click(Homepage.Digs);
-		Homepage.waitFortitleToBePresent("Nebraska Jokers Select 13U AAA Baseball | Digs");
+		Homepage.waitFortitleToBePresent("Nebraska Jokers Baseball | Digs");
 //		Assert.assertEquals(driver.getTitle(), "Nebraska Jokers Select 13U AAA Baseball | Digs");
 //		System.out.println("Digs = " + driver.getTitle());
 		
 		Homepage.click(Homepage.Contact);
-		Homepage.waitFortitleToBePresent("Contact");
+		Homepage.waitFortitleToBePresent("Nebraska Jokers Baseball | Contact");
 //		Assert.assertEquals(driver.getTitle(), "Contact");
 //		System.out.println("Contact = " + driver.getTitle());
 	   }
