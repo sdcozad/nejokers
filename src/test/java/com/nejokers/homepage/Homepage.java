@@ -9,14 +9,12 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
 import com.nejokers.main.Utils;
 
 public class Homepage {
 
 	public WebDriver driver;
-	private HomepagePageObject Homepage;
-
+	private HomepagePageObject HomePage;
 
 
 	   @BeforeClass(alwaysRun = true)
@@ -26,9 +24,9 @@ public class Homepage {
 	       driver = Utils.getDriver(context);
 	       
 	 
-	       Homepage = new HomepagePageObject(driver);
-	       PageFactory.initElements(driver, Homepage);
-
+	       HomePage = new HomepagePageObject(driver);
+	       PageFactory.initElements(driver, HomePage);
+	       
 	       driver.get(context.getCurrentXmlTest().getParameter("baseURL"));
 
 	   }
@@ -39,48 +37,47 @@ public class Homepage {
 		Assert.assertEquals(driver.getTitle(), "Nebraska Jokers Select 13U AAA Baseball");
 		
 //		Test Comment
-		Homepage.click(Homepage.AboutUs);
-		Homepage.waitFortitleToBePresent("Nebraska Jokers Baseball | About Us");
+		HomePage.click(HomePage.AboutUs);
+		HomePage.waitFortitleToBePresent("Nebraska Jokers Baseball | About Us");
 //		Assert.assertEquals(driver.getTitle(), "About the Nebraska Jokers 13U AAA USSSA select Baseball Team");
 //		System.out.println("AboutUs = " + driver.getTitle());
 		
-		Homepage.click(Homepage.Wanted);
-		Homepage.waitFortitleToBePresent("Nebraska Jokers Baseball | Wanted");
+		HomePage.click(HomePage.Wanted);
+		HomePage.waitFortitleToBePresent("Nebraska Jokers Baseball | Wanted");
 //		Assert.assertEquals(driver.getTitle(), "Nebraska Jokers Select 13U AAA Baseball | *Wanted*");
 //		System.out.println("*Wanted* = " + driver.getTitle());
 		
-		Homepage.click(Homepage.Events);
-		Homepage.waitFortitleToBePresent("Nebraska Jokers Baseball | Events");
+		HomePage.click(HomePage.Events);
+		HomePage.waitFortitleToBePresent("Nebraska Jokers Baseball | Events");
 //		Assert.assertEquals(driver.getTitle(), "Events");
 //		System.out.println("Events = " + driver.getTitle());
 		
-		Homepage.click(Homepage.Calendar);
-		Homepage.waitFortitleToBePresent("Nebraska Jokers Baseball | Calendar");
+		HomePage.click(HomePage.Calendar);
+		HomePage.waitFortitleToBePresent("Nebraska Jokers Baseball | Calendar");
 //		Assert.assertEquals(driver.getTitle(), "Nebraska Jokers Select 13U AAA Baseball | Calendar");
 //		System.out.println("Calendar = " + driver.getTitle());
 		
-		Homepage.click(Homepage.Players);
-		Homepage.waitFortitleToBePresent("Nebraska Jokers Baseball | Players");
+		HomePage.click(HomePage.Players);
+		HomePage.waitFortitleToBePresent("Nebraska Jokers Baseball | Players");
 //		Assert.assertEquals(driver.getTitle(), "The Players");
 //		System.out.println("Players = " + driver.getTitle());
 		
-		Homepage.click(Homepage.Coaches);
-		Homepage.waitFortitleToBePresent("Nebraska Jokers Baseball | Coaches");
+		HomePage.click(HomePage.Coaches);
+		HomePage.waitFortitleToBePresent("Nebraska Jokers Baseball | Coaches");
 //		Assert.assertEquals(driver.getTitle(), "The Coaches");
 //		System.out.println("Coaches = " + driver.getTitle());
 		
-		Homepage.click(Homepage.Digs);
-		Homepage.waitFortitleToBePresent("Nebraska Jokers Baseball | Digs");
+		HomePage.click(HomePage.Digs);
+		HomePage.waitFortitleToBePresent("Nebraska Jokers Baseball | Digs");
 //		Assert.assertEquals(driver.getTitle(), "Nebraska Jokers Select 13U AAA Baseball | Digs");
 //		System.out.println("Digs = " + driver.getTitle());
 		
-		Homepage.click(Homepage.Contact);
-		Homepage.waitFortitleToBePresent("Nebraska Jokers Baseball | Contact");
+		HomePage.click(HomePage.Contact);
+		HomePage.waitFortitleToBePresent("Nebraska Jokers Baseball | Contact");
 //		Assert.assertEquals(driver.getTitle(), "Contact");
 //		System.out.println("Contact = " + driver.getTitle());
 	   }
 
- 
 	@AfterMethod(alwaysRun = true)
 	   public void sendToTestRails(ITestContext context, ITestResult result) {
 //	       log.info("Test Case = [" + CriTestRails.getTestCase() + "]");
