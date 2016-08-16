@@ -20,7 +20,8 @@
             </run>
         </groups>
          <classes>
-                 <class name="com.nejokers.homepage.Homepage"></class> 
+                 <class name="com.nejokers.homepage.Homepage"></class>
+                 <class name="com.nejokers.events.Events"></class> 
          </classes>
    </test>
  
