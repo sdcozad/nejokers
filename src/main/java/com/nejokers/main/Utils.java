@@ -1,9 +1,14 @@
 package com.nejokers.main;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.sql.Date;
 
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -12,6 +17,7 @@ import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestContext;
+import org.testng.ITestResult;
 
 public class Utils {
 
@@ -89,6 +95,27 @@ public class Utils {
             e.printStackTrace();
         }
 
+    }
+
+    public static void takeScreenShot(WebDriver driver, ITestContext context, ITestResult result) {
+        Date date = new Date(System.currentTimeMillis());
+        String dateString = date.toString();
+        String screenShotName =
+            context.getCurrentXmlTest().getParameter("ScreenShotDirectory") + dateString + result.getName() + ".png";
+        File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        try {
+            FileUtils.copyFile(scrFile, new File(screenShotName));
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+    }
+
+    public static String getMethodName() {
+        StackTraceElement[] stacktrace = Thread.currentThread().getStackTrace();
+        StackTraceElement e = stacktrace[2];
+        return e.getMethodName();
     }
 
 
