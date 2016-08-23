@@ -3,6 +3,7 @@
 VM=default
 DOCKER_MACHINE=/usr/local/bin/docker-machine
 VBOXMANAGE=/Applications/VirtualBox.app/Contents/MacOS/VBoxManage
+DOCKER=/usr/local/bin/docker
 
 BLUE='\033[0;34m'
 GREEN='\033[0;32m'
@@ -70,13 +71,13 @@ echo "For help getting started, check out the docs at https://docs.docker.com"
 echo
 
  #Start Selenium Hub on port 4444
- docker run -d -p 4444:4444 -P --name selenium-hub selenium/hub
+${DOCKER} run -d -p 4444:4444 -P --name selenium-hub selenium/hub
 
  #link node-firefox
- docker run -d --name FF1 --link selenium-hub:hub selenium/node-firefox
+ ${DOCKER} run -d --name FF1 --link selenium-hub:hub selenium/node-firefox
 
  #link node-chrome
- docker run -d --name chrome1 --link selenium-hub:hub selenium/node-chrome
+ ${DOCKER} run -d --name chrome1 --link selenium-hub:hub selenium/node-chrome
 
 USER_SHELL="$(dscl /Search -read /Users/${USER} UserShell | awk '{print $2}' | head -n 1)"
 if [[ "${USER_SHELL}" == *"/bash"* ]] || [[ "${USER_SHELL}" == *"/zsh"* ]] || [[ "${USER_SHELL}" == *"/sh"* ]]; then

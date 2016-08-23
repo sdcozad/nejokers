@@ -3,6 +3,7 @@
 VM=default
 DOCKER_MACHINE=/usr/local/bin/docker-machine
 VBOXMANAGE=/Applications/VirtualBox.app/Contents/MacOS/VBoxManage
+DOCKER=/usr/local/bin/docker
 
 BLUE='\033[0;34m'
 GREEN='\033[0;32m'
@@ -70,8 +71,8 @@ echo "For help getting started, check out the docs at https://docs.docker.com"
 echo
 
  #Stop all containers
- docker ps -a | awk '{print $1}' | xargs docker stop
- docker ps -a | awk '{print $1}' | xargs docker rm
+${DOCKER} ps -a | awk '{print $1}' | xargs docker stop
+${DOCKER} ps -a | awk '{print $1}' | xargs docker rm
 
 USER_SHELL="$(dscl /Search -read /Users/${USER} UserShell | awk '{print $2}' | head -n 1)"
 if [[ "${USER_SHELL}" == *"/bash"* ]] || [[ "${USER_SHELL}" == *"/zsh"* ]] || [[ "${USER_SHELL}" == *"/sh"* ]]; then
