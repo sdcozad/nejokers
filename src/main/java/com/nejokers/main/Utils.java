@@ -68,7 +68,6 @@ public class Utils {
                     e.printStackTrace();
                 }
                 break;
-
             default:
                 driver = new FirefoxDriver();
                 break;

@@ -8,28 +8,36 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
 
-	public WebDriver driver;
-	   public WebDriverWait wait;
-	   public static String browserType;
+    public WebDriver driver;
+    public WebDriverWait wait;
+    public static String browserType;
 
-	   public BasePage(WebDriver driver) {
-	       this.driver = driver;
-	       wait = new WebDriverWait(driver, 30);
-	   }
+    public BasePage(WebDriver driver) {
+        this.driver = driver;
+        wait = new WebDriverWait(driver, 30);
+    }
 
 
-	   public void click(WebElement element) {
-	       wait.until(ExpectedConditions.elementToBeClickable(element)).click();
+    public void click(WebElement element) {
+        wait.until(ExpectedConditions.elementToBeClickable(element)).click();
 
-	   }	
-	
-	   public boolean waitFortitleToBePresent(String value) {
-	       try {
-	           wait.until(ExpectedConditions.titleContains(value));
-	           return true;
-	       } catch (NoSuchElementException e) {
-	           return false;
-	       }
-	   }
-	   
+    }
+
+    public boolean waitFortitleToBePresent(String value) {
+        try {
+            wait.until(ExpectedConditions.titleContains(value));
+            return true;
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+    }
+
+
+    public void type(WebElement element, String keys) {
+        wait.until(ExpectedConditions.elementToBeClickable(element)).clear();
+        wait.until(ExpectedConditions.elementToBeClickable(element)).click();
+        wait.until(ExpectedConditions.elementToBeClickable(element)).sendKeys(keys);
+
+    }
+
 }
