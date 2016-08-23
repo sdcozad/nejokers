@@ -9,7 +9,7 @@
     <parameter name="testrailURL" value = "https://cri.testrail.com/"></parameter>
     <parameter name="testrailUserName" value = "hscruggs@clientresourcesinc.com"></parameter>
     <parameter name="testRailPassword" value = "Smokey32!"></parameter>
-    <parameter name="updateTestRail" value = "no"></parameter>
+    <parameter name="updateTestRail" value = "yes"></parameter>
     <parameter name="firefoxTestRun" value = "2394"></parameter>
     <parameter name="ScreenShotDirectory" value = "ScreenShots/"></parameter>
          
