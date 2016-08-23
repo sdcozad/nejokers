@@ -9,73 +9,73 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import com.nejokers.events.EventsPageObject;
 import com.nejokers.homepage.HomepagePageObject;
 import com.nejokers.main.Utils;
 
 public class Events {
 
-	public WebDriver driver;
-	private HomepagePageObject HomePage;
-	private EventsPageObject EventsPage;
+    public WebDriver driver;
+    private HomepagePageObject HomePage;
+    private EventsPageObject EventsPage;
 
 
 
-	   @BeforeClass(alwaysRun = true)
-	   public void launchBrowser(ITestContext context) throws Exception {
+    @BeforeClass(alwaysRun = true)
+    public void launchBrowser(ITestContext context) throws Exception {
 
 
-	       driver = Utils.getDriver(context);
-	       
-	 
-	       HomePage = new HomepagePageObject(driver);
-	       PageFactory.initElements(driver, HomePage);
-	       
-	       EventsPage = new EventsPageObject(driver);
-	       PageFactory.initElements(driver, EventsPage);
-
-	       driver.get(context.getCurrentXmlTest().getParameter("baseURL"));
-
-	   }
-  
-
-	@Test(priority = 10, groups = {"smokeTests"})
-	   public void clickCalandarFromEvents(ITestContext context) {
-		
-		HomePage.click(HomePage.Events);
-		HomePage.waitFortitleToBePresent("Nebraska Jokers Baseball | Events");
-		
-		EventsPage.click(EventsPage.ViewCalendar);
-		HomePage.waitFortitleToBePresent("Nebraska Jokers Baseball | Calendar");
-
-	   }
- 
-	@AfterMethod(alwaysRun = true)
-	   public void sendToTestRails(ITestContext context, ITestResult result) {
-//	       log.info("Test Case = [" + CriTestRails.getTestCase() + "]");
-//	       if (context.getCurrentXmlTest().getParameter("updateTestRail").contentEquals("yes"))
-//	           CriTestRails.updateTestRails(driver,
-//	               context.getCurrentXmlTest().getParameter("browse"),
-//	               CriTestRails.getTestCase(),
-//	               CriTestRails.getTestRun(),
-//	               result);
-//
-	       if (result.getStatus() == ITestResult.FAILURE)
-	    	   System.out.println("Failed - Page Title Wrong");
-	       else
-	    	   System.out.println("Passed - Page Title Correct");
-//	           Utils.takeScreenShot(driver, context, result);
-	   }
+        driver = Utils.getDriver(context);
 
 
-	   @AfterClass(alwaysRun = true)
-	   public void terminateDriver() {
-//	       log.info("Inside " + Utils.getMethodName());
-//	       log.info("Terminating");
-//	       Dashboard.logout();
+        HomePage = new HomepagePageObject(driver);
+        PageFactory.initElements(driver, HomePage);
 
-	       driver.close();
-	       driver.quit();
-	   }
-	
+        EventsPage = new EventsPageObject(driver);
+        PageFactory.initElements(driver, EventsPage);
+
+        driver.get(context.getCurrentXmlTest().getParameter("baseURL"));
+
+    }
+
+
+    @Test(priority = 10, groups = {"smokeTests"})
+    public void clickCalandarFromEvents(ITestContext context) {
+
+        HomePage.click(HomePage.Events);
+        HomePage.waitFortitleToBePresent("Nebraska Jokers Baseball | Events");
+
+        EventsPage.click(EventsPage.ViewCalendar);
+        HomePage.waitFortitleToBePresent("Nebraska Jokers Baseball | Calendar");
+
+
+    }
+
+    @AfterMethod(alwaysRun = true)
+    public void sendToTestRails(ITestContext context, ITestResult result) {
+        //	       log.info("Test Case = [" + CriTestRails.getTestCase() + "]");
+        //	       if (context.getCurrentXmlTest().getParameter("updateTestRail").contentEquals("yes"))
+        //	           CriTestRails.updateTestRails(driver,
+        //	               context.getCurrentXmlTest().getParameter("browse"),
+        //	               CriTestRails.getTestCase(),
+        //	               CriTestRails.getTestRun(),
+        //	               result);
+        //
+        if (result.getStatus() == ITestResult.FAILURE)
+            System.out.println("Failed - Events Page Error");
+        else
+            System.out.println("Passed - Events Page Passed");
+        //	           Utils.takeScreenShot(driver, context, result);
+    }
+
+
+    @AfterClass(alwaysRun = true)
+    public void terminateDriver() {
+        //	       log.info("Inside " + Utils.getMethodName());
+        //	       log.info("Terminating");
+        //	       Dashboard.logout();
+
+        driver.close();
+        driver.quit();
+    }
+
 }
