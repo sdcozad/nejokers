@@ -1,7 +1,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="FNTS Tests" verbose="2">
 	  <parameter name="browse" value="HUBFIREFOX"></parameter>
-<!-- 	<parameter name="browse" value="FIREFOX"></parameter> -->
+<!-- 	<parameter name="browse" value="FIREFOX"></parameter>  -->
 	<parameter name="docker_address" value="http://192.168.99.100:4444/wd/hub"></parameter>
     <parameter name="testLogLevel" value = "info"></parameter>
     <parameter name="baseURL" value ="http://nejokers.com"></parameter>
