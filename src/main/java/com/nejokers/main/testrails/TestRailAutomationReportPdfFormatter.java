@@ -26,7 +26,7 @@ public class TestRailAutomationReportPdfFormatter {
 
         //message info
         String[] mailTo = {
-            "herbscruggs@gmail.com"};
+            "qaautocri@gmail.com"};
 
         String subject = "Demo-" + dateNow();
         String message = "Automation Report Summary for " + dateNow();
