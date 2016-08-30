@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.nejokers.main.BasePage;
 
@@ -34,10 +33,5 @@ public class HomepagePageObject extends BasePage {
     @FindBy(how = How.LINK_TEXT, using = "Contact")
     public WebElement Contact;
 
-    public void type(WebElement element, String keys) {
-        wait.until(ExpectedConditions.elementToBeClickable(element)).clear();
-        wait.until(ExpectedConditions.elementToBeClickable(element)).click();
-        wait.until(ExpectedConditions.elementToBeClickable(element)).sendKeys(keys);
-    }
 
 }
