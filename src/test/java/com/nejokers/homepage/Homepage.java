@@ -43,6 +43,11 @@ public class Homepage {
         //		Assert.assertEquals(driver.getTitle(), "About the Nebraska Jokers 13U AAA USSSA select Baseball Team");
         //		System.out.println("AboutUs = " + driver.getTitle());
 
+        HomePage.click(HomePage.Scores);
+        HomePage.waitFortitleToBePresent("Nebraska Jokers Baseball | Scores");
+        //      Assert.assertEquals(driver.getTitle(), "Nebraska Jokers Select 13U AAA Baseball | Scores");
+        //      System.out.println("Scores = " + driver.getTitle());
+
         HomePage.click(HomePage.Wanted);
         HomePage.waitFortitleToBePresent("Nebraska Jokers Baseball | Wanted");
         //		Assert.assertEquals(driver.getTitle(), "Nebraska Jokers Select 13U AAA Baseball | *Wanted*");

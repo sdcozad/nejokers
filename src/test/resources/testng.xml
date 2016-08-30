@@ -22,7 +22,8 @@
          <classes>
          	<class name="com.nejokers.homepage.Homepage"></class>
             <class name="com.nejokers.events.Events"></class>
-			<class name="com.nejokers.shop.Shop"></class>  
+			<class name="com.nejokers.shop.Shop"></class>
+			<class name="com.nejokers.contact.Contact"></class>  
          </classes>
    </test>
  
