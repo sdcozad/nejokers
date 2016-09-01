@@ -10,7 +10,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import com.nejokers.main.Utils;
+import com.cri.main.utils.Utils;
 
 public class Homepage {
 

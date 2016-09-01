@@ -9,8 +9,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import com.cri.main.utils.Utils;
 import com.nejokers.homepage.HomepagePageObject;
-import com.nejokers.main.Utils;
 
 public class Events {
 
