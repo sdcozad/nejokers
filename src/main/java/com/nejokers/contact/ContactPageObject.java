@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
-import com.nejokers.main.BasePage;
+import com.cri.main.utils.BasePage;
 
 public class ContactPageObject extends BasePage {
 
