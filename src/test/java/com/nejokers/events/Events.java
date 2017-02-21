@@ -1,6 +1,5 @@
 package com.nejokers.events;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
@@ -9,12 +8,13 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import com.cri.main.utils.Utils;
+import com.cri.main.utils.DriverFactory;
+import com.cri.main.utils.LocalDriverManager;
 import com.nejokers.homepage.HomepagePageObject;
 
 public class Events {
 
-    public WebDriver driver;
+    //    public WebDriver driver;
     private HomepagePageObject HomePage;
     private EventsPageObject EventsPage;
 
@@ -24,16 +24,18 @@ public class Events {
     public void launchBrowser(ITestContext context) throws Exception {
 
 
-        driver = Utils.getDriver(context);
+        //        driver = Utils.getDriver(context);
+        DriverFactory.createInstance(context);
 
 
-        HomePage = new HomepagePageObject(driver);
-        PageFactory.initElements(driver, HomePage);
 
-        EventsPage = new EventsPageObject(driver);
-        PageFactory.initElements(driver, EventsPage);
+        HomePage = new HomepagePageObject(LocalDriverManager.getDriver());
+        PageFactory.initElements(LocalDriverManager.getDriver(), HomePage);
 
-        driver.get(context.getCurrentXmlTest().getParameter("baseURL"));
+        EventsPage = new EventsPageObject(LocalDriverManager.getDriver());
+        PageFactory.initElements(LocalDriverManager.getDriver(), EventsPage);
+
+        LocalDriverManager.getDriver().get(context.getCurrentXmlTest().getParameter("baseURL"));
 
     }
 
@@ -74,8 +76,8 @@ public class Events {
         //	       log.info("Terminating");
         //	       Dashboard.logout();
 
-        driver.close();
-        driver.quit();
+        LocalDriverManager.destroyLocalDriver();
+
     }
 
 }

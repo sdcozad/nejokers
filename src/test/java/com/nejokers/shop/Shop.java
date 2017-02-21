@@ -1,7 +1,7 @@
 package com.nejokers.shop;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
@@ -9,12 +9,13 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import com.cri.main.utils.Utils;
+import com.cri.main.utils.DriverFactory;
+import com.cri.main.utils.LocalDriverManager;
 import com.nejokers.homepage.HomepagePageObject;
 
 public class Shop {
 
-    public WebDriver driver;
+    //    public WebDriver driver;
     private HomepagePageObject HomePage;
     private ShopPageObject ShopPage;
 
@@ -22,16 +23,20 @@ public class Shop {
     public void launchBrowser(ITestContext context) throws Exception {
 
 
-        driver = Utils.getDriver(context);
+        //        driver = Utils.getDriver(context);
+        DriverFactory.createInstance(context);
 
 
-        HomePage = new HomepagePageObject(driver);
-        PageFactory.initElements(driver, HomePage);
 
-        ShopPage = new ShopPageObject(driver);
-        PageFactory.initElements(driver, ShopPage);
+        HomePage = new HomepagePageObject(LocalDriverManager.getDriver());
+        PageFactory.initElements(LocalDriverManager.getDriver(), HomePage);
 
-        driver.get(context.getCurrentXmlTest().getParameter("baseURL"));
+        ShopPage = new ShopPageObject(LocalDriverManager.getDriver()
+
+        );
+        PageFactory.initElements(LocalDriverManager.getDriver(), ShopPage);
+
+        LocalDriverManager.getDriver().get(context.getCurrentXmlTest().getParameter("baseURL"));
 
     }
 
@@ -42,11 +47,11 @@ public class Shop {
         HomePage.waitFortitleToBePresent("Nebraska Jokers Baseball | Shop");
 
         ShopPage.click(ShopPage.GearUp);
-        HomePage.waitFortitleToBePresent("Nebraska Jokers jokers Apparel Store | Prep Sportswear");
-        driver.navigate().back();
-        HomePage.waitFortitleToBePresent("Nebraska Jokers Baseball | Shop");
+        Assert.assertTrue(HomePage.waitFortitleToBePresent("Nebraska Jokers Jokers Apparel Store | Prep Sportswear"));
+        LocalDriverManager.getDriver().navigate().back();
+        Assert.assertTrue(HomePage.waitFortitleToBePresent("Nebraska Jokers Baseball | Shop"));
         ShopPage.click(ShopPage.StoreImage);
-        HomePage.waitFortitleToBePresent("Nebraska Jokers jokers Apparel Store | Prep Sportswear");
+        Assert.assertTrue(HomePage.waitFortitleToBePresent("Nebraska Jokers Jokers Apparel Store | Prep Sportswear"));
 
     }
 
@@ -74,8 +79,7 @@ public class Shop {
         //      log.info("Terminating");
         //      Dashboard.logout();
 
-        driver.close();
-        driver.quit();
+        LocalDriverManager.destroyLocalDriver();
     }
 
 }

@@ -1,7 +1,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="FNTS Tests" verbose="2">
-    <parameter name="browse" value="FIREFOX"></parameter>
-   <parameter name="chromedriver" value ="src/test/resources/chromedriver"></parameter>
+<!--  <parameter name="browse" value="DOCKER_FF"></parameter> -->    
+    <parameter name="browse" value="FF"></parameter>
+    <parameter name="docker_address" value="http://docker:4444/wd/hub"></parameter>
+    <parameter name="driverpath" value ="src/test/resources/geckodriver"></parameter>
     <parameter name="testLogLevel" value = "info"></parameter>
     <parameter name="baseURL" value ="http://nejokers.com"></parameter>
     
@@ -22,7 +24,7 @@
          <classes>
          	<class name="com.nejokers.homepage.Homepage"></class>
             <class name="com.nejokers.events.Events"></class>
-			<class name="com.nejokers.shop.Shop"></class>
+ 			<class name="com.nejokers.shop.Shop"></class>
 			<class name="com.nejokers.contact.Contact"></class>  
          </classes>
    </test>

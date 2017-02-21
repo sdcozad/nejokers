@@ -18,8 +18,6 @@ public class HomepagePageObject extends BasePage {
     public WebElement AboutUs;
     @FindBy(how = How.LINK_TEXT, using = "Scores")
     public WebElement Scores;
-    @FindBy(how = How.LINK_TEXT, using = "*Wanted*")
-    public WebElement Wanted;
     @FindBy(how = How.LINK_TEXT, using = "Events")
     public WebElement Events;
     @FindBy(how = How.LINK_TEXT, using = "Calendar")
@@ -28,6 +26,8 @@ public class HomepagePageObject extends BasePage {
     public WebElement Players;
     @FindBy(how = How.LINK_TEXT, using = "Coaches")
     public WebElement Coaches;
+    @FindBy(how = How.LINK_TEXT, using = "Gallery")
+    public WebElement Gallery;
     @FindBy(how = How.LINK_TEXT, using = "Shop")
     public WebElement Shop;
     @FindBy(how = How.LINK_TEXT, using = "Contact")

@@ -1,6 +1,5 @@
 package com.nejokers.contact;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.ITestContext;
@@ -10,12 +9,13 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import com.cri.main.utils.Utils;
+import com.cri.main.utils.DriverFactory;
+import com.cri.main.utils.LocalDriverManager;
 import com.nejokers.homepage.HomepagePageObject;
 
 public class Contact {
 
-    public WebDriver driver;
+    //    public WebDriver driver;
     private HomepagePageObject HomePage;
     private ContactPageObject ContactPage;
 
@@ -23,16 +23,16 @@ public class Contact {
     public void launchBrowser(ITestContext context) throws Exception {
 
 
-        driver = Utils.getDriver(context);
+        //        driver = Utils.getDriver(context);
+        DriverFactory.createInstance(context);
 
+        HomePage = new HomepagePageObject(LocalDriverManager.getDriver());
+        PageFactory.initElements(LocalDriverManager.getDriver(), HomePage);
 
-        HomePage = new HomepagePageObject(driver);
-        PageFactory.initElements(driver, HomePage);
+        ContactPage = new ContactPageObject(LocalDriverManager.getDriver());
+        PageFactory.initElements(LocalDriverManager.getDriver(), ContactPage);
 
-        ContactPage = new ContactPageObject(driver);
-        PageFactory.initElements(driver, ContactPage);
-
-        driver.get(context.getCurrentXmlTest().getParameter("baseURL"));
+        LocalDriverManager.getDriver().get(context.getCurrentXmlTest().getParameter("baseURL"));
 
     }
 
@@ -40,7 +40,7 @@ public class Contact {
     public void clickCalandarFromEvents(ITestContext context) {
 
         HomePage.click(HomePage.Contact);
-        HomePage.waitFortitleToBePresent("Nebraska Jokers Baseball | Contact");
+        Assert.assertTrue(HomePage.waitFortitleToBePresent("Nebraska Jokers Baseball | Contact"));
 
         ContactPage.Name.sendKeys("Test Name");
         //        ContactPage.Email.sendKeys("test@email.com");
@@ -77,8 +77,8 @@ public class Contact {
         //      log.info("Terminating");
         //      Dashboard.logout();
 
-        driver.close();
-        driver.quit();
+        LocalDriverManager.destroyLocalDriver();
+
     }
 
 }
